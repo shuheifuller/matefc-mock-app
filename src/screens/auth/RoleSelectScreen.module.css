@@ -25,10 +25,14 @@
   margin: 22px 0 26px;
 }
 .logo {
-  width: 92px;
-  height: 92px;
+  width: 104px;
+  height: 104px;
   margin: 0 auto 14px;
   display: block;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 .welcome {
   font-size: 24px;
