@@ -52,17 +52,25 @@
   letter-spacing: 0.05em;
   margin-bottom: 10px;
 }
-.card {
+.roleCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-lg);
   padding: var(--s-4);
   margin-bottom: var(--s-3);
+  color: #fff;
 }
-.cardHead {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.roleCard:active {
+  background: rgba(255, 255, 255, 0.14);
+}
+.roleText {
+  flex: 1;
+  min-width: 0;
 }
 .cardIcon {
   width: 40px;
@@ -75,51 +83,13 @@
   flex: 0 0 auto;
 }
 .cardTitle {
+  display: block;
   font-size: 16px;
   font-weight: 800;
 }
 .cardDesc {
+  display: block;
   font-size: 12px;
   opacity: 0.75;
   margin-top: 1px;
-}
-.familyList {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.familyBtn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: var(--r-md);
-  padding: 10px 12px;
-  text-align: left;
-}
-.familyName {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--mfc-text);
-}
-.familySub {
-  font-size: 11.5px;
-  color: var(--mfc-muted);
-}
-.familyChev {
-  margin-left: auto;
-}
-.coachBtn {
-  margin-top: 12px;
-  width: 100%;
-  background: var(--mfc-cat-academy);
-  color: #3a2c00;
-  border: none;
-  border-radius: var(--r-md);
-  padding: 12px;
-  font-size: 15px;
-  font-weight: 800;
 }

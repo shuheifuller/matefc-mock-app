@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { RoleSelectScreen } from './screens/auth/RoleSelectScreen';
+import { LoginScreen } from './screens/auth/LoginScreen';
 import { ParentLayout } from './screens/parent/ParentLayout';
 import { DashboardScreen } from './screens/parent/DashboardScreen';
 import { StudentsScreen } from './screens/parent/StudentsScreen';
@@ -27,6 +28,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<RoleSelectScreen />} />
+      <Route path="/login/:role" element={<LoginScreen />} />
 
       <Route path="/parent" element={<ParentLayout />}>
         <Route index element={<DashboardScreen />} />
