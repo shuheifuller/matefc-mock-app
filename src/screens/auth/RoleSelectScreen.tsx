@@ -34,7 +34,7 @@ export function RoleSelectScreen() {
         </div>
 
         <div className={s.hero}>
-          <img className={s.logo} src="/matefc-logo.svg" alt="MateFC" />
+          <img className={s.logo} src={`${import.meta.env.BASE_URL}matefc-logo.svg`} alt="MateFC" />
           <div className={s.welcome}>{t('role.welcome')}</div>
           <div className={s.tagline}>{t('role.tagline')}</div>
         </div>
