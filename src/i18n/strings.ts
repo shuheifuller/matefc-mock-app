@@ -125,6 +125,9 @@ export const strings = {
       makeupAvailable: 'Make-up available',
       cancelNote: 'Cancel by 4:00 PM the day before for a make-up token.',
       noSessions: 'No sessions this week',
+      week: 'Week',
+      month: 'Month',
+      noSessionsDay: 'No sessions on this day',
     },
     attendance: {
       title: 'Attendance',
@@ -341,6 +344,9 @@ export const strings = {
       makeupAvailable: '振替可能',
       cancelNote: '前日16時までのキャンセルで振替チケットを付与します。',
       noSessions: '今週のレッスンはありません',
+      week: '週',
+      month: '月',
+      noSessionsDay: 'この日のレッスンはありません',
     },
     attendance: {
       title: '出欠',

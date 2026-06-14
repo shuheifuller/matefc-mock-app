@@ -9,7 +9,7 @@ export interface ParentLogin {
 
 export const PARENT_LOGINS: ParentLogin[] = [
   // The credential specified for the mock.
-  { email: 'tanakamatefctest@gmail.com', password: '1234', familyId: 'fam_tanaka' },
+  { email: 'mika.tanaka@example.com', password: '1234', familyId: 'fam_tanaka' },
   // Additional demo accounts (same password) so every family stays reachable.
   { email: 'smithmatefctest@gmail.com', password: '1234', familyId: 'fam_smith' },
   { email: 'nguyenmatefctest@gmail.com', password: '1234', familyId: 'fam_nguyen' },

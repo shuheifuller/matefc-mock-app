@@ -1,0 +1,84 @@
+.calCard {
+  background: var(--mfc-surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--s-4);
+}
+.calHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-3);
+}
+.calMonth {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--mfc-navy);
+}
+.calNav {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mfc-surface-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.calWeekday {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mfc-muted);
+  padding: 2px 0 6px;
+}
+.calDay {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--mfc-text);
+  position: relative;
+}
+.calDayBlank {
+  visibility: hidden;
+}
+.calDayToday {
+  color: var(--mfc-blue);
+  font-weight: 800;
+}
+.calDaySelected {
+  background: var(--mfc-navy);
+  color: #fff;
+  font-weight: 800;
+}
+.calDot {
+  position: absolute;
+  bottom: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mfc-blue);
+}
+.calDotWeather {
+  background: var(--mfc-warn);
+}
+.calDaySelected .calDot {
+  background: #fff;
+}
+.dayTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--mfc-navy);
+  margin: var(--s-4) 0 2px;
+}
