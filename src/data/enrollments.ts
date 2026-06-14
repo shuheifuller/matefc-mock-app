@@ -1,7 +1,8 @@
 import type { Enrollment } from '../types/domain';
+import { rosterEnrollments } from './roster';
 
 // Which student attends which class (drives schedule + roster).
-export const enrollments: Enrollment[] = [
+const coreEnrollments: Enrollment[] = [
   { id: 'en_1', studentId: 'st_tanaka_a', classId: 'cls_chatswood_mon', startDate: '2024-02-05', status: 'active' },
   { id: 'en_2', studentId: 'st_tanaka_a', classId: 'cls_naremburn_wed', startDate: '2024-02-05', status: 'active' },
   { id: 'en_3', studentId: 'st_tanaka_a', classId: 'cls_wentworth_sat', startDate: '2024-02-05', status: 'active' },
@@ -14,6 +15,8 @@ export const enrollments: Enrollment[] = [
   { id: 'en_10', studentId: 'st_brown', classId: 'cls_naremburn_fri', startDate: '2025-02-14', status: 'active' },
   { id: 'en_11', studentId: 'st_lee', classId: 'cls_chatswood_mon', startDate: '2026-06-22', status: 'trial' },
 ];
+
+export const enrollments: Enrollment[] = [...coreEnrollments, ...rosterEnrollments];
 
 export const enrollmentsForStudent = (studentId: string) =>
   enrollments.filter((e) => e.studentId === studentId);

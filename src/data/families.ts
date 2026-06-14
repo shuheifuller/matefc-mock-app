@@ -1,6 +1,7 @@
 import { MembershipCategory, type Family, type Student } from '../types/domain';
+import { rosterFamilies, rosterStudents } from './roster';
 
-export const families: Family[] = [
+const coreFamilies: Family[] = [
   {
     id: 'fam_tanaka',
     familyName: 'Tanaka',
@@ -44,7 +45,7 @@ export const families: Family[] = [
   },
 ];
 
-export const students: Student[] = [
+const coreStudents: Student[] = [
   {
     id: 'st_tanaka_a',
     familyId: 'fam_tanaka',
@@ -133,6 +134,10 @@ export const students: Student[] = [
     avatarColor: '#8b5cf6',
   },
 ];
+
+// Core demo families/students (login-reachable) + generated coach roster.
+export const families: Family[] = [...coreFamilies, ...rosterFamilies];
+export const students: Student[] = [...coreStudents, ...rosterStudents];
 
 export const studentById = (id?: string) => students.find((s) => s.id === id);
 export const familyById = (id?: string) => families.find((f) => f.id === id);
