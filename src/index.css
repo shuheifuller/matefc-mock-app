@@ -1,0 +1,50 @@
+@import './theme/tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--mfc-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Tinted backdrop the phone floats on */
+  background: radial-gradient(circle at 50% 0%, #1d3a73 0%, #0a1f44 55%, #06122b 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* thin, unobtrusive scrollbars inside the phone */
+.mfc-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

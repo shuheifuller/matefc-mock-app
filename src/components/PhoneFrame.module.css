@@ -1,0 +1,93 @@
+.stage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.frame {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  max-height: calc(100vh - 32px);
+  background: #000;
+  border-radius: 46px;
+  padding: 11px;
+  box-shadow: var(--shadow-phone);
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--mfc-bg);
+  border-radius: 36px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusbar {
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mfc-text);
+  z-index: 30;
+}
+
+.statusbar.onNavy {
+  color: #fff;
+}
+
+.island {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 112px;
+  height: 30px;
+  background: #000;
+  border-radius: 18px;
+  z-index: 40;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.tabSlot {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 440px) {
+  .stage {
+    padding: 0;
+  }
+  .frame {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 0;
+  }
+  .screen {
+    border-radius: 0;
+  }
+}

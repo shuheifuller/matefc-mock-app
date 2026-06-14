@@ -1,0 +1,121 @@
+.wrap {
+  min-height: 100%;
+  background: linear-gradient(160deg, #122a57 0%, #0a1f44 60%, #06122b 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px 28px;
+}
+.langRow {
+  display: flex;
+  justify-content: flex-end;
+}
+.langBtn {
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+}
+.hero {
+  text-align: center;
+  margin: 22px 0 26px;
+}
+.logo {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 14px;
+  display: block;
+}
+.welcome {
+  font-size: 24px;
+  font-weight: 800;
+}
+.tagline {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+.choose {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+  margin-bottom: var(--s-3);
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--mfc-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.cardTitle {
+  font-size: 16px;
+  font-weight: 800;
+}
+.cardDesc {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 1px;
+}
+.familyList {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.familyBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  text-align: left;
+}
+.familyName {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--mfc-text);
+}
+.familySub {
+  font-size: 11.5px;
+  color: var(--mfc-muted);
+}
+.familyChev {
+  margin-left: auto;
+}
+.coachBtn {
+  margin-top: 12px;
+  width: 100%;
+  background: var(--mfc-cat-academy);
+  color: #3a2c00;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 800;
+}

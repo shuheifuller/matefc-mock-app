@@ -1,0 +1,12 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mfcCrest" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0A1F44"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 6 L106 22 V60 C106 88 86 108 60 116 C34 108 14 88 14 60 V22 Z" fill="url(#mfcCrest)" stroke="#fff" stroke-width="3"/>
+  <text x="60" y="52" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#fff" text-anchor="middle">MATE</text>
+  <text x="60" y="84" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#7DA9FF" text-anchor="middle">FC</text>
+  <circle cx="60" cy="98" r="3" fill="#fff"/>
+</svg>

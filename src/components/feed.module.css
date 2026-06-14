@@ -1,0 +1,111 @@
+/* ---- NewsCard ---- */
+.news {
+  background: var(--mfc-surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+.newsAccent {
+  height: 4px;
+}
+.newsBody {
+  padding: var(--s-3) var(--s-4) var(--s-4);
+}
+.newsTop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.newsCat {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.newsTime {
+  font-size: 11px;
+  color: var(--mfc-muted);
+  margin-left: auto;
+}
+.newsTitle {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--mfc-text);
+  line-height: 1.3;
+}
+.newsText {
+  font-size: 13px;
+  color: var(--mfc-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.clamp2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pinned {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--mfc-warn);
+}
+
+/* ---- NotificationRow ---- */
+.notif {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  background: var(--mfc-surface);
+  border-bottom: 1px solid var(--mfc-border);
+  position: relative;
+}
+.notifUnread {
+  background: var(--mfc-sky);
+}
+.notifIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  font-size: 18px;
+}
+.notifMain {
+  flex: 1;
+  min-width: 0;
+}
+.notifTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--mfc-text);
+}
+.notifText {
+  font-size: 12.5px;
+  color: var(--mfc-muted);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+.notifTime {
+  font-size: 11px;
+  color: var(--mfc-muted);
+  margin-top: 4px;
+}
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mfc-blue);
+  flex: 0 0 auto;
+  margin-top: 6px;
+}

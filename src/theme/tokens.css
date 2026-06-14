@@ -1,0 +1,66 @@
+:root {
+  /* Brand blues */
+  --mfc-navy: #0a1f44;
+  --mfc-navy-700: #122a57;
+  --mfc-blue: #1d4ed8;
+  --mfc-blue-600: #2563eb;
+  --mfc-blue-400: #60a5fa;
+  --mfc-sky: #e8f0fe;
+  --mfc-sky-200: #d6e4ff;
+
+  /* Surfaces */
+  --mfc-bg: #f5f7fb;
+  --mfc-surface: #ffffff;
+  --mfc-surface-2: #f0f4fa;
+  --mfc-border: #e2e8f0;
+
+  /* Text */
+  --mfc-text: #0f172a;
+  --mfc-muted: #64748b;
+  --mfc-on-navy: #ffffff;
+
+  /* Status */
+  --mfc-success: #16a34a;
+  --mfc-success-bg: #dcfce7;
+  --mfc-warn: #d97706;
+  --mfc-warn-bg: #fef3c7;
+  --mfc-error: #dc2626;
+  --mfc-error-bg: #fee2e2;
+
+  /* Membership category accents */
+  --mfc-cat-casual: #64748b;
+  --mfc-cat-once: #60a5fa;
+  --mfc-cat-twice: #2563eb;
+  --mfc-cat-unlimited: #0a1f44;
+  --mfc-cat-academy: #d4a017;
+  --mfc-cat-academy-bg: #fdf3d6;
+  --mfc-cat-trial: #16a34a;
+
+  /* Pillars 心 技 体 */
+  --mfc-pillar-mind: #8b5cf6;
+  --mfc-pillar-skill: #2563eb;
+  --mfc-pillar-body: #f97316;
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+
+  /* Spacing (4px grid) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+
+  /* Shadow */
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-pop: 0 8px 30px rgba(10, 31, 68, 0.18);
+  --shadow-phone: 0 30px 70px rgba(10, 31, 68, 0.35);
+
+  /* Font */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+}
