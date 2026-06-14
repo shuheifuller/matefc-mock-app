@@ -10,6 +10,7 @@ const coreEnrollments: Enrollment[] = [
   { id: 'en_5', studentId: 'st_tanaka_b', classId: 'cls_naremburn_fri', startDate: '2025-02-10', status: 'active' },
   { id: 'en_6', studentId: 'st_smith', classId: 'cls_mowbray_tue', startDate: '2026-03-03', status: 'active' },
   { id: 'en_7', studentId: 'st_nguyen_a', classId: 'cls_academy_sat', startDate: '2024-08-17', status: 'active' },
+  { id: 'en_7b', studentId: 'st_nguyen_a', classId: 'cls_academy_mon', startDate: '2024-08-17', status: 'active' },
   { id: 'en_8', studentId: 'st_nguyen_a', classId: 'cls_naremburn_fri', startDate: '2024-08-17', status: 'active' },
   { id: 'en_9', studentId: 'st_nguyen_b', classId: 'cls_wentworth_sat', startDate: '2025-10-04', status: 'active' },
   { id: 'en_10', studentId: 'st_brown', classId: 'cls_naremburn_fri', startDate: '2025-02-14', status: 'active' },

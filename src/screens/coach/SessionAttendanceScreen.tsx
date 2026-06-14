@@ -13,7 +13,6 @@ import s from '../screen.module.css';
 const OPTIONS: { value: AttendanceStatus; key: string; color: string }[] = [
   { value: 'present', key: 'attendance.present', color: 'var(--mfc-success)' },
   { value: 'absent', key: 'attendance.absent', color: 'var(--mfc-error)' },
-  { value: 'excused', key: 'attendance.excused', color: 'var(--mfc-muted)' },
   { value: 'makeup', key: 'attendance.makeup', color: 'var(--mfc-blue)' },
 ];
 

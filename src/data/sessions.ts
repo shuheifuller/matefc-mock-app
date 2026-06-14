@@ -10,6 +10,7 @@ export const sessions: Session[] = [
   { id: 'ses_naremburn_fri_0612', classId: 'cls_naremburn_fri', date: '2026-06-12', status: 'completed' },
   { id: 'ses_wentworth_0613', classId: 'cls_wentworth_sat', date: '2026-06-13', status: 'completed' },
   { id: 'ses_academy_0613', classId: 'cls_academy_sat', date: '2026-06-13', status: 'completed' },
+  { id: 'ses_academy_mon_0608', classId: 'cls_academy_mon', date: '2026-06-08', status: 'completed' },
 
   // ---- this / next week (scheduled) ----
   { id: 'ses_chatswood_0615', classId: 'cls_chatswood_mon', date: '2026-06-15', status: 'scheduled' },
@@ -18,6 +19,7 @@ export const sessions: Session[] = [
   { id: 'ses_naremburn_fri_0619', classId: 'cls_naremburn_fri', date: '2026-06-19', status: 'scheduled' },
   { id: 'ses_wentworth_0620', classId: 'cls_wentworth_sat', date: '2026-06-20', status: 'scheduled' },
   { id: 'ses_academy_0620', classId: 'cls_academy_sat', date: '2026-06-20', status: 'scheduled' },
+  { id: 'ses_academy_mon_0615', classId: 'cls_academy_mon', date: '2026-06-15', status: 'scheduled' },
 
   // Min Lee's trial session
   { id: 'ses_chatswood_0622', classId: 'cls_chatswood_mon', date: '2026-06-22', status: 'scheduled' },

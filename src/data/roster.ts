@@ -60,6 +60,7 @@ interface ClassSpec {
   ageMin: number;
   ageMax: number;
   academy?: boolean;
+  alsoClassId?: string; // second class these students also attend
 }
 
 // Existing demo enrollments per class are small; `add` tops each up to ~25–30.
@@ -69,7 +70,7 @@ const SPECS: ClassSpec[] = [
   { classId: 'cls_naremburn_wed', venueId: 'v_naremburn', add: 27, ageMin: 4, ageMax: 15 },
   { classId: 'cls_naremburn_fri', venueId: 'v_naremburn', add: 26, ageMin: 4, ageMax: 15 },
   { classId: 'cls_wentworth_sat', venueId: 'v_wentworth', add: 27, ageMin: 4, ageMax: 12 },
-  { classId: 'cls_academy_sat', venueId: 'v_wentworth', add: 16, ageMin: 8, ageMax: 14, academy: true },
+  { classId: 'cls_academy_sat', venueId: 'v_wentworth', add: 16, ageMin: 8, ageMax: 14, academy: true, alsoClassId: 'cls_academy_mon' },
 ];
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -136,6 +137,17 @@ for (const spec of SPECS) {
       startDate: '2025-02-10',
       status: isTrial ? 'trial' : 'active',
     });
+
+    // Academy members also attend the Monday special-lesson class.
+    if (spec.alsoClassId) {
+      rosterEnrollments.push({
+        id: `re_${n}b`,
+        studentId,
+        classId: spec.alsoClassId,
+        startDate: '2025-02-10',
+        status: 'active',
+      });
+    }
   }
 }
 

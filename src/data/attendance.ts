@@ -12,7 +12,7 @@ export const attendance: AttendanceRecord[] = [
   { id: 'at_6', studentId: 'st_smith', sessionId: 'ses_mowbray_0609', status: 'present', markedByCoachId: 'c3' },
   // Kai Nguyen (Academy)
   { id: 'at_7', studentId: 'st_nguyen_a', sessionId: 'ses_academy_0613', status: 'present', markedByCoachId: 'c2' },
-  { id: 'at_8', studentId: 'st_nguyen_a', sessionId: 'ses_naremburn_fri_0612', status: 'excused', markedByCoachId: 'c8' },
+  { id: 'at_8', studentId: 'st_nguyen_a', sessionId: 'ses_naremburn_fri_0612', status: 'absent', markedByCoachId: 'c8' },
   // Lucas Brown (Once)
   { id: 'at_9', studentId: 'st_brown', sessionId: 'ses_naremburn_fri_0612', status: 'present', markedByCoachId: 'c8' },
 ];
