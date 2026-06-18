@@ -9,15 +9,20 @@ import { ClassKind, type ClassOffering } from '../../types/domain';
 import { venueById } from '../../data/venues';
 import { coachById } from '../../data/coaches';
 import { formatAUD, weekdayLabel } from '../../lib/format';
+import { familyHasLessonCredit } from '../../lib/selectors';
 import s from '../screen.module.css';
 
 type Tab = 'regular' | 'academy' | 'camp';
 
 export function ClassesBrowseScreen() {
   const { t, lang, tl } = useI18n();
-  const { data } = useParent();
+  const { students, data } = useParent();
   const nav = useNavigate();
   const [tab, setTab] = useState<Tab>('regular');
+
+  // Participating in a lesson needs a credit (Unlimited plan or an unexpired
+  // make-up token). Camps are pay-per-day, so they ignore this gate.
+  const canBook = familyHasLessonCredit(students, data.makeupTokens);
 
   const filter: Record<Tab, ClassKind> = {
     regular: ClassKind.Regular,
@@ -96,9 +101,11 @@ export function ClassesBrowseScreen() {
               </span>
             )}
           </div>
-          <Button sm variant={isAcademy ? 'navy' : 'primary'} onClick={onEnroll} disabled={spots <= 0 && !isCamp}>
-            {t('classes.enrollNow')}
-          </Button>
+          {(isCamp || canBook) && (
+            <Button sm variant={isAcademy ? 'navy' : 'primary'} onClick={onEnroll} disabled={spots <= 0 && !isCamp}>
+              {t('classes.participate')}
+            </Button>
+          )}
         </div>
       </Card>
     );

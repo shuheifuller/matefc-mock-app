@@ -1,10 +1,31 @@
-import type {
-  AttendanceRecord,
-  Enrollment,
-  Session,
-  Student,
+import {
+  MembershipCategory,
+  type AttendanceRecord,
+  type Enrollment,
+  type MakeupToken,
+  type Session,
+  type Student,
 } from '../types/domain';
 import { TODAY } from '../data';
+
+/**
+ * Whether a family may book a drop-in lesson ("participate"). True if any
+ * student is on the Unlimited plan, or holds an unused, unexpired make-up token.
+ * Unexpired = no `expiresOn`, or `expiresOn >= today`.
+ */
+export function familyHasLessonCredit(
+  students: Student[],
+  makeupTokens: MakeupToken[],
+  today = TODAY,
+): boolean {
+  return students.some(
+    (st) =>
+      st.category === MembershipCategory.RegularUnlimited ||
+      makeupTokens.some(
+        (m) => m.studentId === st.id && !m.used && (!m.expiresOn || m.expiresOn >= today),
+      ),
+  );
+}
 
 /** Upcoming (today or later) scheduled sessions for a set of class ids, sorted. */
 export function upcomingSessionsForClasses(

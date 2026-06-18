@@ -21,7 +21,9 @@ export const makeupTokens: MakeupToken[] = [
   { id: 'mk_1', studentId: 'st_tanaka_a', reason: 'weather', earnedDate: '2026-05-21', used: false },
   { id: 'mk_2', studentId: 'st_tanaka_b', reason: 'personal', earnedDate: '2026-04-10', used: true, expiresOn: '2026-12-31' },
   { id: 'mk_3', studentId: 'st_tanaka_b', reason: 'personal', earnedDate: '2026-05-30', used: false, expiresOn: '2026-12-31' },
-  { id: 'mk_4', studentId: 'st_smith', reason: 'weather', earnedDate: '2026-05-14', used: false },
+  // Smith (once-weekly, no Unlimited member) — single unexpired make-up credit,
+  // so the "Book a spot" gate is satisfied purely by a make-up token.
+  { id: 'mk_4', studentId: 'st_smith', reason: 'personal', earnedDate: '2026-05-14', used: false, expiresOn: '2026-12-31' },
   { id: 'mk_5', studentId: 'st_brown', reason: 'personal', earnedDate: '2026-03-20', used: false, expiresOn: '2026-12-31' },
 ];
 
