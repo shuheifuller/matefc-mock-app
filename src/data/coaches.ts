@@ -3,11 +3,11 @@ import type { Coach } from '../types/domain';
 export const coaches: Coach[] = [
   {
     id: 'c1',
-    name: 'Kenji Mori',
+    name: 'Yuzo Tashiro',
     roleTitle: { en: 'Head Coach / Director', ja: 'ヘッドコーチ / 代表' },
     bio: {
-      en: 'Former J-League midfielder and Japan youth international. Leads MateFC.',
-      ja: '元JリーグMF・日本ユース代表。MateFCを統括。',
+      en: 'Former J-League forward. Former Japan international. Leads MateFC.',
+      ja: '元JリーグFW・元日本代表。MateFCを統括。',
     },
     avatarColor: '#0a1f44',
     isAdmin: true,

@@ -7,6 +7,7 @@ import { StudentsScreen } from './screens/parent/StudentsScreen';
 import { StudentDetailScreen } from './screens/parent/StudentDetailScreen';
 import { ClassesBrowseScreen } from './screens/parent/ClassesBrowseScreen';
 import { EnrollScreen } from './screens/parent/EnrollScreen';
+import { BookingScreen } from './screens/parent/BookingScreen';
 import { ScheduleScreen } from './screens/parent/ScheduleScreen';
 import { AttendanceScreen } from './screens/parent/AttendanceScreen';
 import { ProgressScreen } from './screens/parent/ProgressScreen';
@@ -36,6 +37,7 @@ export function AppRoutes() {
         <Route path="students/:id" element={<StudentDetailScreen />} />
         <Route path="classes" element={<ClassesBrowseScreen />} />
         <Route path="enroll" element={<EnrollScreen />} />
+        <Route path="book/:classId" element={<BookingScreen />} />
         <Route path="schedule" element={<ScheduleScreen />} />
         <Route path="attendance" element={<AttendanceScreen />} />
         <Route path="progress" element={<ProgressScreen />} />

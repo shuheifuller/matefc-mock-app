@@ -13,18 +13,39 @@ import { TODAY } from '../data';
  * student is on the Unlimited plan, or holds an unused, unexpired make-up token.
  * Unexpired = no `expiresOn`, or `expiresOn >= today`.
  */
+export function unexpiredMakeupTokens(
+  makeupTokens: MakeupToken[],
+  studentId: string,
+  today = TODAY,
+): MakeupToken[] {
+  return makeupTokens.filter(
+    (m) => m.studentId === studentId && !m.used && (!m.expiresOn || m.expiresOn >= today),
+  );
+}
+
+export type BookingMode = 'unlimited' | 'makeup' | 'none';
+
+/** Per-student participation eligibility for the "Book a spot" flow. */
+export function studentBookingEligibility(
+  student: Student,
+  makeupTokens: MakeupToken[],
+  today = TODAY,
+): { eligible: boolean; mode: BookingMode; makeupCount: number } {
+  if (student.category === MembershipCategory.RegularUnlimited) {
+    return { eligible: true, mode: 'unlimited', makeupCount: 0 };
+  }
+  const makeupCount = unexpiredMakeupTokens(makeupTokens, student.id, today).length;
+  return makeupCount > 0
+    ? { eligible: true, mode: 'makeup', makeupCount }
+    : { eligible: false, mode: 'none', makeupCount: 0 };
+}
+
 export function familyHasLessonCredit(
   students: Student[],
   makeupTokens: MakeupToken[],
   today = TODAY,
 ): boolean {
-  return students.some(
-    (st) =>
-      st.category === MembershipCategory.RegularUnlimited ||
-      makeupTokens.some(
-        (m) => m.studentId === st.id && !m.used && (!m.expiresOn || m.expiresOn >= today),
-      ),
-  );
+  return students.some((st) => studentBookingEligibility(st, makeupTokens, today).eligible);
 }
 
 /** Upcoming (today or later) scheduled sessions for a set of class ids, sorted. */

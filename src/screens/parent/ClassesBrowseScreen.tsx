@@ -48,13 +48,13 @@ export function ClassesBrowseScreen() {
 
       <div className={s.page}>
         {list.map((c) => (
-          <ClassCard key={c.id} c={c} onEnroll={() => nav('/parent/enroll')} />
+          <ClassCard key={c.id} c={c} />
         ))}
       </div>
     </>
   );
 
-  function ClassCard({ c, onEnroll }: { c: ClassOffering; onEnroll: () => void }) {
+  function ClassCard({ c }: { c: ClassOffering }) {
     const venue = venueById(c.venueId);
     const spots = c.capacity - c.enrolledCount;
     const isAcademy = c.kind === ClassKind.Academy;
@@ -102,7 +102,12 @@ export function ClassesBrowseScreen() {
             )}
           </div>
           {(isCamp || canBook) && (
-            <Button sm variant={isAcademy ? 'navy' : 'primary'} onClick={onEnroll} disabled={spots <= 0 && !isCamp}>
+            <Button
+              sm
+              variant={isAcademy ? 'navy' : 'primary'}
+              onClick={() => (isCamp ? nav('/parent/enroll') : nav(`/parent/book/${c.id}`))}
+              disabled={spots <= 0 && !isCamp}
+            >
               {t('classes.participate')}
             </Button>
           )}

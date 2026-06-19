@@ -6,11 +6,13 @@ import {
   type AttendanceRecord,
   type AttendanceStatus,
   type Family,
+  type MakeupToken,
   type NewsItem,
   type Session,
   type SkillProgress,
   type Student,
 } from '../types/domain';
+import { TODAY } from '../data';
 import { seed } from '../data';
 import { planById } from '../data/plans';
 import { nextId } from '../lib/ids';
@@ -22,19 +24,20 @@ interface DataValue {
   plans: typeof seed.plans;
   classes: typeof seed.classes;
   enrollments: typeof seed.enrollments;
-  makeupTokens: typeof seed.makeupTokens;
   invoices: typeof seed.invoices;
   // mutable state
   families: Family[];
   students: Student[];
   sessions: Session[];
   attendance: AttendanceRecord[];
+  makeupTokens: MakeupToken[];
   skillProgress: SkillProgress[];
   news: NewsItem[];
   notifications: AppNotification[];
   // mutators
   convertTrial: (studentId: string, planId: string) => void;
   enrollExisting: (studentId: string, planId: string) => void;
+  bookSpot: (studentId: string) => void;
   markAttendance: (sessionId: string, studentId: string, status: AttendanceStatus) => void;
   weatherCancelSession: (sessionId: string) => void;
   saveSkillProgress: (entry: SkillProgress) => void;
@@ -53,6 +56,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [students, setStudents] = useState<Student[]>(seed.students);
   const [sessions, setSessions] = useState<Session[]>(seed.sessions);
   const [attendance, setAttendance] = useState<AttendanceRecord[]>(seed.attendance);
+  const [makeupTokens, setMakeupTokens] = useState<MakeupToken[]>(seed.makeupTokens);
   const [skillProgress, setSkillProgress] = useState<SkillProgress[]>(seed.skillProgress);
   const [news, setNews] = useState<NewsItem[]>(seed.news);
   const [notifications, setNotifications] = useState<AppNotification[]>(seed.notifications);
@@ -82,6 +86,22 @@ export function DataProvider({ children }: { children: ReactNode }) {
       ),
     );
   }, []);
+
+  // Book a drop-in lesson. Unlimited students consume nothing; others spend one
+  // unexpired, unused make-up token.
+  const bookSpot = useCallback(
+    (studentId: string) => {
+      const student = students.find((s) => s.id === studentId);
+      if (student?.category === MembershipCategory.RegularUnlimited) return;
+      setMakeupTokens((prev) => {
+        const idx = prev.findIndex(
+          (m) => m.studentId === studentId && !m.used && (!m.expiresOn || m.expiresOn >= TODAY),
+        );
+        return idx < 0 ? prev : prev.map((m, i) => (i === idx ? { ...m, used: true } : m));
+      });
+    },
+    [students],
+  );
 
   const markAttendance = useCallback(
     (sessionId: string, studentId: string, status: AttendanceStatus) => {
@@ -164,17 +184,18 @@ export function DataProvider({ children }: { children: ReactNode }) {
       plans: seed.plans,
       classes: seed.classes,
       enrollments: seed.enrollments,
-      makeupTokens: seed.makeupTokens,
       invoices: seed.invoices,
       families,
       students,
       sessions,
       attendance,
+      makeupTokens,
       skillProgress,
       news,
       notifications,
       convertTrial,
       enrollExisting,
+      bookSpot,
       markAttendance,
       weatherCancelSession,
       saveSkillProgress,
@@ -187,11 +208,13 @@ export function DataProvider({ children }: { children: ReactNode }) {
       students,
       sessions,
       attendance,
+      makeupTokens,
       skillProgress,
       news,
       notifications,
       convertTrial,
       enrollExisting,
+      bookSpot,
       markAttendance,
       weatherCancelSession,
       saveSkillProgress,
