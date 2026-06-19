@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { PhoneFrame } from '../../components/PhoneFrame';
 import { IconChevron, IconUsers } from '../../components/Icons';
+import { EnvBadge } from '../../components/EnvBadge';
 import { useI18n } from '../../i18n/I18nContext';
 import s from './RoleSelectScreen.module.css';
 
@@ -19,7 +20,9 @@ export function RoleSelectScreen() {
 
         <div className={s.hero}>
           <img className={s.logo} src={`${import.meta.env.BASE_URL}matefc-logo.png`} alt="MateFC" />
-          <div className={s.welcome}>{t('role.welcome')}</div>
+          <div className={s.welcome}>
+            {t('role.welcome')} <EnvBadge />
+          </div>
           <div className={s.tagline}>{t('role.tagline')}</div>
         </div>
 

@@ -4,6 +4,15 @@ A bilingual (English / 日本語), blue-themed **mock mobile app** for the MateF
 school, presented as a phone-framed web app. Modeled on the iClassPro and Jackrabbit
 parent-portal apps, with two role flows (Parents/Students and Coach/Admin).
 
+## Live URLs
+
+- **Beta (Cloudflare Pages):** https://matefc-beta.pages.dev — official-looking pre-production environment (carries a **BETA** badge).
+- GitHub Pages: https://shuheifuller.github.io/matefc-mock-app/ — same app.
+
+Both serve the same build. To redeploy the beta URL after changes: `npm run deploy:beta`
+(requires Cloudflare auth via `npx wrangler login`). The `BETA` badge is controlled by the
+`VITE_ENV_LABEL` build-time variable.
+
 > All data is static mock data held in React state — there is no backend. Mutations
 > (enrolling, converting a trial, marking attendance, posting news) persist in memory
 > for the session and reset on refresh.

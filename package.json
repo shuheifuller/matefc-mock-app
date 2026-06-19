@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:beta": "DEPLOY_BASE=/ VITE_ENV_LABEL=BETA npm run build",
+    "deploy:beta": "npm run build:beta && wrangler pages deploy dist --project-name=matefc-beta --commit-dirty=true --branch=main",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
@@ -19,6 +21,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "typescript": "^5.5.4",
-    "vite": "^5.4.6"
+    "vite": "^5.4.6",
+    "wrangler": "^3.80.0"
   }
 }

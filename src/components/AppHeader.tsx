@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useI18n } from '../i18n/I18nContext';
 import { IconBack, IconBell, IconGlobe } from './Icons';
+import { EnvBadge } from './EnvBadge';
 import s from './AppHeader.module.css';
 
 interface AppHeaderProps {
@@ -40,6 +41,7 @@ export function AppHeader({
           </button>
         )}
         <div className={`${s.title} ${smallTitle ? s.titleSmall : ''}`}>{title}</div>
+        <EnvBadge small />
         {showLang && (
           <button className={s.langBtn} onClick={toggleLang}>
             <IconGlobe size={15} />
