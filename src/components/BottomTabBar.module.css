@@ -2,7 +2,8 @@
   display: flex;
   background: var(--mfc-surface);
   border-top: 1px solid var(--mfc-border);
-  padding: 8px 6px 22px;
+  /* bottom respects the iPhone home indicator when running natively */
+  padding: 8px 6px max(22px, calc(env(safe-area-inset-bottom) + 6px));
 }
 .tab {
   flex: 1;

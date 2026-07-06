@@ -9,20 +9,28 @@ interface PhoneFrameProps {
   statusOnNavy?: boolean;
 }
 
+/** True when running inside the Capacitor iOS shell — the real device
+ *  provides the status bar, so the faux one is replaced by a safe-area strip. */
+const IS_NATIVE = typeof window !== 'undefined' && window.location.protocol === 'capacitor:';
+
 export function PhoneFrame({ children, tabBar, statusOnNavy }: PhoneFrameProps) {
   return (
     <div className={styles.stage}>
-      <div className={styles.frame}>
+      <div className={`${styles.frame} ${IS_NATIVE ? styles.native : ''}`}>
         <div className={styles.screen}>
-          <div className={styles.island} />
-          <div className={`${styles.statusbar} ${statusOnNavy ? styles.onNavy : ''}`}>
-            <span>9:41</span>
-            <span className={styles.statusIcons}>
-              <Signal />
-              <Wifi />
-              <Battery />
-            </span>
-          </div>
+          {!IS_NATIVE && <div className={styles.island} />}
+          {IS_NATIVE ? (
+            <div className={styles.safeTop} />
+          ) : (
+            <div className={`${styles.statusbar} ${statusOnNavy ? styles.onNavy : ''}`}>
+              <span>9:41</span>
+              <span className={styles.statusIcons}>
+                <Signal />
+                <Wifi />
+                <Battery />
+              </span>
+            </div>
+          )}
           <div className={`${styles.body} mfc-scroll`}>{children}</div>
           {tabBar && <div className={styles.tabSlot}>{tabBar}</div>}
         </div>

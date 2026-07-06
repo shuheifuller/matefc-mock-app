@@ -13,6 +13,21 @@ Both serve the same build. To redeploy the beta URL after changes: `npm run depl
 (requires Cloudflare auth via `npx wrangler login`). The `BETA` badge is controlled by the
 `VITE_ENV_LABEL` build-time variable.
 
+## iOS app (Simulator)
+
+The same app ships as a native iOS shell via Capacitor (`ios/` — open
+`ios/App/App.xcodeproj` in Xcode). Inside the shell the faux status bar is replaced
+by the real iOS one, and safe areas (notch / home indicator) are respected.
+
+```bash
+npm run build:beta && npx cap sync ios     # bundle latest web build into the iOS app
+xcodebuild -project ios/App/App.xcodeproj -scheme App \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
+xcrun simctl install booted <path-to>/App.app && xcrun simctl launch booted com.matefc.mock
+```
+
+Or simply open the project in Xcode and press Run.
+
 > All data is static mock data held in React state — there is no backend. Mutations
 > (enrolling, converting a trial, marking attendance, posting news) persist in memory
 > for the session and reset on refresh.

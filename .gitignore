@@ -8,3 +8,6 @@ dist-ssr
 # TypeScript incremental build cache
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+
+# Xcode build output
+ios/DerivedData

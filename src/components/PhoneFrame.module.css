@@ -46,6 +46,24 @@
   color: #fff;
 }
 
+/* Native (Capacitor) — real iOS status bar overlays the top; render a navy
+   strip matching the app headers under it instead of the faux status bar. */
+.safeTop {
+  flex: 0 0 env(safe-area-inset-top);
+  background: var(--mfc-navy);
+  z-index: 30;
+}
+.native {
+  width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  border-radius: 0;
+  padding: 0;
+}
+.native .screen {
+  border-radius: 0;
+}
+
 .island {
   position: absolute;
   top: 9px;
