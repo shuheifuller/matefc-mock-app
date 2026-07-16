@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppHeader } from '../../components/AppHeader';
-import { Avatar, Button, Card, MembershipBadge } from '../../components/primitives';
+import { Avatar, Button, Card, EmptyState, MembershipBadge } from '../../components/primitives';
 import { IconCheck, IconClock } from '../../components/Icons';
 import { useI18n } from '../../i18n/I18nContext';
 import { useParent } from './useParent';
@@ -31,6 +31,19 @@ export function BookingScreen() {
     mode: BookingMode;
     remaining: number;
   }>(null);
+
+  // Guard against a stale / invalid class id in the URL — never spend a credit
+  // against a lesson that doesn't exist.
+  if (!cls) {
+    return (
+      <>
+        <AppHeader title={t('booking.title')} showBack />
+        <div className={s.page}>
+          <EmptyState text={t('booking.classNotFound')} />
+        </div>
+      </>
+    );
+  }
 
   const confirm = () => {
     const sel = eligible.find((x) => x.st.id === studentId);
@@ -109,6 +122,10 @@ export function BookingScreen() {
         )}
 
         {/* Single action: select a student */}
+        {eligible.length === 0 ? (
+          <EmptyState text={t('booking.noneEligible')} />
+        ) : (
+          <>
         <div className={s.label}>{t('booking.selectStudent')}</div>
         <Card flush>
           {eligible.map(({ st, e }) => {
@@ -160,6 +177,8 @@ export function BookingScreen() {
         <Button block variant="navy" disabled={!studentId} onClick={confirm}>
           {t('booking.confirm')}
         </Button>
+          </>
+        )}
       </div>
     </>
   );

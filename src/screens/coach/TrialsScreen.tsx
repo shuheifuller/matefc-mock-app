@@ -70,7 +70,7 @@ export function TrialsScreen() {
                       <Button sm variant="navy" onClick={() => setConvertingId(st.id)}>
                         {t('coach.convert')}
                       </Button>
-                      <Button sm variant="ghost" onClick={() => { /* mock decline */ }}>
+                      <Button sm variant="ghost" onClick={() => data.declineTrial(st.id)}>
                         {t('coach.decline')}
                       </Button>
                     </div>

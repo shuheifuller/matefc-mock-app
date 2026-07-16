@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppHeader } from '../../components/AppHeader';
-import { Avatar, Button, Card, MembershipBadge, ProgressBar, StatTile } from '../../components/primitives';
+import { Avatar, Button, Card, EmptyState, MembershipBadge, ProgressBar, StatTile } from '../../components/primitives';
 import { useI18n } from '../../i18n/I18nContext';
 import { useParent } from './useParent';
 import { metaFor } from '../../lib/membership';
@@ -19,7 +19,14 @@ export function StudentDetailScreen() {
   const nav = useNavigate();
 
   const st = data.students.find((x) => x.id === id);
-  if (!st) return <AppHeader title="—" showBack />;
+  if (!st) {
+    return (
+      <>
+        <AppHeader title="—" showBack />
+        <EmptyState text={t('common.none')} />
+      </>
+    );
+  }
 
   const meta = metaFor(st.category);
   const plan = planById(st.planId);

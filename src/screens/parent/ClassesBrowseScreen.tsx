@@ -105,7 +105,7 @@ export function ClassesBrowseScreen() {
             <Button
               sm
               variant={isAcademy ? 'navy' : 'primary'}
-              onClick={() => (isCamp ? nav('/parent/enroll') : nav(`/parent/book/${c.id}`))}
+              onClick={() => nav(`/parent/${isCamp ? 'camp' : 'book'}/${c.id}`)}
               disabled={spots <= 0 && !isCamp}
             >
               {t('classes.participate')}

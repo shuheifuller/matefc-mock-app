@@ -22,6 +22,9 @@ export function EnrollScreen() {
   const [studentId, setStudentId] = useState<string | null>(trialStudent?.id ?? null);
   const [planId, setPlanId] = useState<string | null>(null);
   const [done, setDone] = useState(false);
+  // Captured at confirm time — after convertTrial() the student is no longer a
+  // Trial, so recomputing isConvert on the success view would read false.
+  const [wasConvert, setWasConvert] = useState(false);
 
   const student = students.find((st) => st.id === studentId);
   const isConvert = student?.category === MembershipCategory.Trial;
@@ -31,6 +34,7 @@ export function EnrollScreen() {
 
   const confirm = () => {
     if (!studentId || !planId) return;
+    setWasConvert(isConvert);
     if (isConvert) data.convertTrial(studentId, planId);
     else data.enrollExisting(studentId, planId);
     setDone(true);
@@ -39,7 +43,7 @@ export function EnrollScreen() {
   if (done) {
     return (
       <>
-        <AppHeader title={isConvert ? t('enroll.convertTitle') : t('enroll.title')} showBack={false} />
+        <AppHeader title={wasConvert ? t('enroll.convertTitle') : t('enroll.title')} showBack={false} />
         <div className={s.page} style={{ alignItems: 'center', textAlign: 'center', paddingTop: 40 }}>
           <span
             style={{
@@ -55,7 +59,7 @@ export function EnrollScreen() {
             <IconCheck size={40} color="var(--mfc-success)" />
           </span>
           <div style={{ fontSize: 19, fontWeight: 800, marginTop: 8 }}>
-            {isConvert ? t('enroll.successConvert') : t('enroll.success')}
+            {wasConvert ? t('enroll.successConvert') : t('enroll.success')}
           </div>
           <div className={s.muted}>
             {student?.firstName} · {plan && tl(plan.name)}

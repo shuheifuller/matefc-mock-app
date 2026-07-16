@@ -36,6 +36,7 @@ interface DataValue {
   notifications: AppNotification[];
   // mutators
   convertTrial: (studentId: string, planId: string) => void;
+  declineTrial: (studentId: string) => void;
   enrollExisting: (studentId: string, planId: string) => void;
   bookSpot: (studentId: string) => void;
   markAttendance: (sessionId: string, studentId: string, status: AttendanceStatus) => void;
@@ -74,6 +75,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
                 ? { ...s.trial, status: 'converted', convertedToPlanId: planId }
                 : undefined,
             }
+          : s,
+      ),
+    );
+  }, []);
+
+  const declineTrial = useCallback((studentId: string) => {
+    setStudents((prev) =>
+      prev.map((s) =>
+        s.id === studentId && s.trial
+          ? { ...s, trial: { ...s.trial, status: 'declined' } }
           : s,
       ),
     );
@@ -194,6 +205,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       news,
       notifications,
       convertTrial,
+      declineTrial,
       enrollExisting,
       bookSpot,
       markAttendance,
@@ -213,6 +225,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       news,
       notifications,
       convertTrial,
+      declineTrial,
       enrollExisting,
       bookSpot,
       markAttendance,

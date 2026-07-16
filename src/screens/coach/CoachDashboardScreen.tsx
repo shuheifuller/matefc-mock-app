@@ -87,7 +87,7 @@ export function CoachDashboardScreen() {
                   )}
                 </span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--mfc-muted)' }}>
+                  <span style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--mfc-muted)', whiteSpace: 'nowrap' }}>
                     {enrolled} {t('coach.enrolled')}
                   </span>
                   <IconChevron size={18} color="var(--mfc-muted)" />

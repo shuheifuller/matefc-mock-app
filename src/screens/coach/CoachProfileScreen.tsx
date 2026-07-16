@@ -75,9 +75,10 @@ export function CoachProfileScreen() {
           />
         </Card>
 
-        <div className={s.label}>{t('profile.reference')} · {t('nav.roster')}</div>
+        <div className={s.label}>{t('profile.reference')}</div>
         <Card>
-          <div className={s.kv}><span>{t('coach.regularCount')}</span><span>{data.coaches.length} coaches</span></div>
+          <div className={s.kv}><span>{t('coach.coaches')}</span><span>{data.coaches.length}</span></div>
+          <div className={s.kv}><span>{t('coach.members')}</span><span>{data.students.length}</span></div>
           <div className={s.kv}><span>{t('profile.venues')}</span><span>{data.venues.length}</span></div>
         </Card>
 
